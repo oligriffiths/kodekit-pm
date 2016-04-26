@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/timble/kodekit.git",
-                "reference": "db8ffafac9c65870e41727b2d01bdd4aa352284a"
+                "reference": "570856672d7a5ddd55c6152b535e918636d175db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/timble/kodekit/zipball/db8ffafac9c65870e41727b2d01bdd4aa352284a",
-                "reference": "db8ffafac9c65870e41727b2d01bdd4aa352284a",
+                "url": "https://api.github.com/repos/timble/kodekit/zipball/570856672d7a5ddd55c6152b535e918636d175db",
+                "reference": "570856672d7a5ddd55c6152b535e918636d175db",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +148,7 @@
                 "source": "https://github.com/timble/kodekit/tree/master",
                 "issues": "https://github.com/timble/kodekit/issues"
             },
-            "time": "2016-04-23 15:04:25"
+            "time": "2016-04-26 22:20:32"
         }
     ],
     "packages-dev": [
@@ -382,12 +382,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-pm/php-pm.git",
-                "reference": "f726f85ad369dd8733fad6983de9b77b051eb448"
+                "reference": "5f8b8abd0357cd6be997be45b07cd00b658bf21a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-pm/php-pm/zipball/f726f85ad369dd8733fad6983de9b77b051eb448",
-                "reference": "f726f85ad369dd8733fad6983de9b77b051eb448",
+                "url": "https://api.github.com/repos/php-pm/php-pm/zipball/5f8b8abd0357cd6be997be45b07cd00b658bf21a",
+                "reference": "5f8b8abd0357cd6be997be45b07cd00b658bf21a",
                 "shasum": ""
             },
             "require": {
@@ -398,7 +398,7 @@
                 "react/socket-client": "^0.5.0",
                 "react/stream": "^0.4",
                 "symfony/console": "^2.6|^3.0",
-                "symfony/debug": "^2.6|^3.0",
+                "symfony/debug": "^2.8|^3.0",
                 "symfony/process": "^2.6|^3.0"
             },
             "require-dev": {
@@ -423,7 +423,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-04-21 13:16:05"
+            "time": "2016-04-26 12:34:03"
         },
         {
             "name": "psr/http-message",
