@@ -1,0 +1,32 @@
+{
+  "name": "oligriffiths/kodekit-pm",
+  "description": "A demo of KodeKit with PHP-PM",
+  "require": {
+    "php": ">=5.5",
+    "timble/kodekit": "dev-master",
+    "oligriffiths/kodekit-application": "dev-master"
+  },
+  "require-dev": {
+    "php-pm/php-pm": "dev-master"
+  },
+  "autoload": {
+    "classmap": [
+      "vendor/timble/kodekit/code/class/loader/loader.php"
+    ],
+    "psr-4": {
+      "PHPPM\\": "php-pm"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories":[
+    {
+      "type": "vcs",
+      "url": "git@github.com:timble/kodekit.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:oligriffiths/kodekit-application.git"
+    }
+  ]
+}
