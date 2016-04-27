@@ -37,19 +37,22 @@ $kodekit = Kodekit::getInstance(array(
 ));
 
 // Bootstrap the application
+/** @var Library\ObjectBootstrapper $bootstrapper */
 $bootstrapper = Kodekit::getObject('object.bootstrapper');
 
+// Register components
+$bootstrapper->registerComponents(APPLICATION_ROOT . '/component');
 
+// Find component.json files in /vendor
 $dir_iterator = new RecursiveDirectoryIterator(__DIR__ . '/../vendor');
 $iterator = new RecursiveIteratorIterator($dir_iterator, RecursiveIteratorIterator::SELF_FIRST);
 
-$regex = new RegexIterator($iterator, '/component\.json$/i', RecursiveRegexIterator::GET_MATCH);
-
-foreach ($regex as $file) {
-    error_log(gettype($file));
+/** @var SplFileInfo $item */
+foreach ($iterator as $item) {
+    if ($item->getBasename() === 'component.json') {
+        $bootstrapper->registerComponent(realpath($item->getPath()));
+    }
 }
-exit;
-
 
 // Load the bootstrapper config
 if (file_exists($kodekit->getRootPath(). '/config/bootstrapper.php')) {

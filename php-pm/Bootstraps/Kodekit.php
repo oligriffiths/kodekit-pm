@@ -21,7 +21,6 @@ class Kodekit implements BootstrapInterface
     {
         $this->appenv = $appenv;
         $this->debug = $debug;
-        error_log($this->appenv);
     }
 
     /**
@@ -29,8 +28,17 @@ class Kodekit implements BootstrapInterface
      */
     public function getApplication()
     {
+        // This is a hack due to bugs in DispatcherRequestAbstract
+        if (empty($_SERVER['PHP_SELF'])) {
+            $_SERVER['PHP_SELF'] = 'index.php';
+        }
+
+        if (empty($_SERVER['REQUEST_URI'])) {
+            $_SERVER['REQUEST_URI'] = '/';
+        }
+
         require_once __DIR__ . '/../../public/bootstrap.php';
         
-        return \Kodekit\Library\ObjectManager::getInstance()->getObject('application');
+        return \Kodekit::getObject('application');
     }
 }

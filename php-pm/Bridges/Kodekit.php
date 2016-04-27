@@ -4,13 +4,18 @@ namespace PHPPM\Bridges;
 
 class Kodekit implements BridgeInterface
 {
+    /**
+     * @var \Kodekit\Component\Application\Dispatcher
+     */
+    private $application;
+    
     public function bootstrap($appBootstrap, $appenv, $debug)
     {
-        $class = '\\PHPPM\\Bootstraps\\' . $appBootstrap;
-
-        /* @var $bootstrap \PHPPM\Bootstraps\Kodekit */
-        $bootstrap = new $class($appenv, $debug);
-        $this->application = $bootstrap->getApplication();
+//        $class = '\\PHPPM\\Bootstraps\\' . $appBootstrap;
+//
+//        /* @var $bootstrap \PHPPM\Bootstraps\Kodekit */
+//        $bootstrap = new $class($appenv, $debug);
+//        $this->application = $bootstrap->getApplication();
     }
 
     public function getStaticDirectory()
@@ -20,6 +25,9 @@ class Kodekit implements BridgeInterface
 
     public function onRequest(\React\Http\Request $request, \PHPPM\React\HttpResponse $response)
     {
-        error_log('Request!!');
+//        $this->application->dispatch();
+
+        $response->writeHead(200);
+        $response->end('foo');
     }
 }

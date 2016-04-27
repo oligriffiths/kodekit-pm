@@ -1,0 +1,7 @@
+{
+  "bootstrap": {
+    "identifier": "com:foo",
+    "namespace": "OliGriffiths\\Component\\Foo"
+  }
+}
+
