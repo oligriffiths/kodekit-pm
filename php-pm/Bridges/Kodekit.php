@@ -20,23 +20,34 @@ class Kodekit implements BridgeInterface
 
     public function getStaticDirectory()
     {
-
+        return __DIR__ . '/../../public';
     }
 
     public function onRequest(\React\Http\Request $request, \PHPPM\React\HttpResponse $response)
     {
-        $request = $this->application->getRequest();
+        // Setup request
+        $krequest = $this->application->getRequest();
+        $krequest->setHeaders($request->getHeaders());
+        $krequest->setQuery($request->getQuery());
+        $krequest->setData($request->getPost());
+        if ($url = $request->getUrl()) {
+            $krequest->setUrl($url);
+        }
+        $krequest->setMethod($request->getMethod());
+
+        // Setup response
+        $kresponse = $this->application->getResponse();
+
+        // Add dispatcher response transport
+        $transport = new \PHPPM\Kodekit\DispatcherResponseTransport();
+        $kresponse->attachTransport($transport);
+
+        // Dispatch request
         $this->application->dispatch();
+        
+        $code = $kresponse->getStatusCode();
 
-        $response = $this->application->getResponse();
-        $code = $response->getStatusCode();
-        var_dump($code);
-        error_log($code);
-
-
-        $response->writeHead($code);
-
-        $response->writeHead(200);
-        $response->end('foo');
+        $response->writeHead($code, $kresponse->getHeaders()->all());
+        $response->end($kresponse->getContent());
     }
 }

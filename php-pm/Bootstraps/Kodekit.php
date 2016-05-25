@@ -37,6 +37,8 @@ class Kodekit implements BootstrapInterface
             $_SERVER['REQUEST_URI'] = '/';
         }
 
+        $_SERVER['SERVER_NAME'] = gethostname();
+
         require_once __DIR__ . '/../../public/bootstrap.php';
         
         return \Kodekit::getObject('application');
